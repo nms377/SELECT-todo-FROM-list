@@ -30,22 +30,22 @@ ADD PRIMARY KEY (id);
 
 /* 8 Write queries to accomplish the following */
 	
-	/* remove the column named completed*/
+	/*	i. remove the column named completed*/
 	ALTER TABLE "tasks"
 	DROP COLUMN "completed";
 
-	/* add a column to tasks named completed_at:timestamp, that may be NULL, and has a default value of NULL */	
+	/* 	ii. add a column to tasks named completed_at:timestamp, that may be NULL, and has a default value of NULL */	
 	ALTER TABLE "tasks"
 	ADD COLUMN "completed_at" timestamp DEFAULT NULL;
 
-	/*change the updated_at column to not allow NULL values, and have a default value of now()*/
+	/*	iii. change the updated_at column to not allow NULL values, and have a default value of now()*/
 	ALTER TABLE "tasks"
 	ALTER COLUMN "updated_at" SET NOT NULL;
 
 	ALTER TABLE "tasks"
 	ALTER COLUMN "updated_at" SET DEFAULT now();
 
-	/*	create a new task, by only setting values (not defining which columns) id = default value
+	/*	iv. create a new task, by only setting values (not defining which columns) id = default value
 	title = 'Study SQL'
 	description = 'Complete this exercise'
 	created_at = now()
@@ -59,4 +59,24 @@ ADD PRIMARY KEY (id);
 		now(), 
 		NULL);
 
-/*\d+ "tasks";*/
+	/*	v. create a new task
+	title = 'Study PostgreSQL',
+	description = 'Read all the documentation'*/
+
+	INSERT INTO "tasks" (title, description) VALUES (
+		'Study PostgreSQL', 
+		'Read all the documentation');
+
+	/*	vi. select all the titles of tasks that are not yet completed*/
+
+	SELECT * FROM "tasks"
+	WHERE completed_at IS NULL;
+
+
+
+
+
+
+
+
+SELECT * FROM "tasks";

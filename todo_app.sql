@@ -69,8 +69,11 @@ ADD PRIMARY KEY (id);
 
 	/*	vi. select all the titles of tasks that are not yet completed*/
 
-	SELECT * FROM "tasks"
+	SELECT title FROM "tasks"
 	WHERE completed_at IS NULL;
+
+
+	/*	vii. update the task with a title of 'Study SQL' to be completed as of now*/
 
 
 

@@ -75,8 +75,9 @@ ADD PRIMARY KEY (id);
 
 	/*	vii. update the task with a title of 'Study SQL' to be completed as of now*/
 
-
-
+	UPDATE "tasks"
+	SET completed_at = now()
+	WHERE title = 'Study SQL';
 
 
 

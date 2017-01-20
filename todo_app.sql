@@ -84,6 +84,13 @@ ADD PRIMARY KEY (id);
 	SELECT title,description FROM "tasks"
 	WHERE completed_at IS NULL;
 
+	/*	ix. select all fields of every task sorted by creation date in descending order
+	*/
+
+	SELECT *
+	FROM "tasks"
+	ORDER BY created_at DESC;
+
 
 
 

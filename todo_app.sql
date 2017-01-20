@@ -79,6 +79,15 @@ ADD PRIMARY KEY (id);
 	SET completed_at = now()
 	WHERE title = 'Study SQL';
 
+	/*	viii. select all titles and descriptions of tasks that are not yet completed*/
+
+	SELECT title,description FROM "tasks"
+	WHERE completed_at IS NULL;
+
+
+
+
+
 
 
 

@@ -1,3 +1,5 @@
+\c nicolesandry;
+
  /* 1 Write a query to delete a user named michael if it exists */
 DROP USER "michael";
 
@@ -11,10 +13,16 @@ DROP DATABASE IF EXISTS "todo_app";
 CREATE DATABASE "todo_app";
 
 /* 5 Connect to the newly created database */
--- \c todo_app michael;
+\c todo_app;
 
-/* 6 Write a query to create a table named tasks using the Initial columns detailed below */
-CREATE TABLE "tasks" (id integer, title varchar(255), description text, create_at timestamp, updated_at timestamp, completed boolean);
+/* 6 Write a query to create a table named tasks using the Initial columns detailed in the README.md */
+CREATE TABLE "tasks" (
+	id serial NOT NULL, 
+	title varchar(255), 
+	description text, 
+	created_at timestamp WITHOUT TIME ZONE NOT NULL DEFAULT now(), 
+	updated_at timestamp, 
+	completed boolean);
 
 /* 7 Define column id as the table's primary key */
 ALTER TABLE "tasks"
@@ -37,4 +45,18 @@ ADD PRIMARY KEY (id);
 	ALTER TABLE "tasks"
 	ALTER COLUMN "updated_at" SET DEFAULT now();
 
+	/*	create a new task, by only setting values (not defining which columns) id = default value
+	title = 'Study SQL'
+	description = 'Complete this exercise'
+	created_at = now()
+	updated_at = now()
+	completed_at = NULL*/
 
+	INSERT INTO "tasks" (title, description, created_at, updated_at, completed_at) VALUES (
+		'Study SQL', 
+		'Complete this exercise', 
+		now(), 
+		now(), 
+		NULL);
+
+/*\d+ "tasks";*/

@@ -120,6 +120,27 @@ ADD PRIMARY KEY (id);
 	SELECT title FROM "tasks"
 	WHERE title LIKE '%mistake%';
 
+	/*	xiv. delete the task that has a title of mistake 1*/
+
+	DELETE FROM "tasks"
+	WHERE title = 'mistake 1';
+
+	 /*	xv. select title and description fields of all tasks with a title that includes the word 'mistake'*/
+
+	 SELECT title,description
+	 FROM "tasks"
+	 WHERE title LIKE '%mistake%';
+
+	 /*	xvi. delete all tasks that includes the word 'mistake' in the title*/
+
+	 DELETE FROM "tasks"
+	 WHERE title LIKE '%mistake%';
+
+	 /*	xvii. select all fields of all tasks sorted by title in ascending order*/
+
+	 SELECT *
+	 FROM "tasks"
+	 ORDER BY title ASC;
 
 
 

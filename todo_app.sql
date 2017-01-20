@@ -91,9 +91,34 @@ ADD PRIMARY KEY (id);
 	FROM "tasks"
 	ORDER BY created_at DESC;
 
+	/*	x. create a new task
+			title = 'mistake 1'
+			description = 'a test entry'*/
 
+	INSERT INTO "tasks" (title,description) VALUES (
+		'mistake 1', 
+		'a test entry');
 
+	/*	xi. create a new task
+			title = 'mistake 2'
+			description = 'another test entry'*/
 
+	INSERT INTO "tasks" (title, description) VALUES (
+		'mistake 2', 
+		'another test entry');
+
+	/*	xii. create a new task
+			title = 'third mistake'
+			description = 'another test entry'*/
+
+	INSERT INTO "tasks" (title, description) VALUES (
+		'third mistake', 
+		'another test entry');
+
+	/*	xiii. select title fields of all tasks with a title that includes the word 'mistake'*/
+
+	SELECT title FROM "tasks"
+	WHERE title LIKE '%mistake%';
 
 
 
